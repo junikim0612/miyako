@@ -2055,8 +2055,8 @@ function startTrip() {
     a.play().then(function () {
       setTimeout(function () {
         var v = 0;
-        var fade = setInterval(function () { v += 0.025; if (v >= 0.7) { v = 0.7; clearInterval(fade); } a.volume = v; }, 130);
-      }, 800);
+        var fade = setInterval(function () { v += 0.02; if (v >= 0.7) { v = 0.7; clearInterval(fade); } a.volume = v; }, 150);
+      }, 2200);
     }).catch(function () { if (typeof armBgm === 'function') armBgm(); });
   }
   intro.classList.add('exit');
