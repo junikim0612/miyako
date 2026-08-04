@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<!-- 미야코지마 v3 · Ocean & White -->
+<!--
+  ┌─ 수정 가이드 ───────────────────────────────────────────────
+  │ 1) 음악 : audio/bgm.mp3 를 올리면 스크롤(또는 첫 터치) 시 자동 재생됩니다.
+  │ 2) 아이콘: images/miyako-180.png (홈화면 추가 아이콘)
+  │ 3) 사진  : images/ 폴더에 아래 이름으로 넣으면 해당 일정에 사진이 뜹니다.
+  │           확장자는 jpg / jpeg / png 아무거나 됩니다. 없으면 그 칸은 안 보입니다.
+  │ 17end / break / checkout / fuel / higashi-hennazaki / home / hotel-locus / icn / ikema-
+  │ bridge / imgya / irabu-bridge / izakaya / koja-soba / kurima-bridge / kurima-sunset / kyoya
+  │ / maehama / miyako-beef / morning-beach / nishi-hennazaki / painagama / port / rakuen /
+  │ rentcar / return / sawada / shigira / shimoji-airport / shopping / sumubari / wagonr /
+  │ yabiji / yukishio
+  │ 4) og:url / og:image 주소를 새 저장소 주소로 바꿔주세요.
+  └─────────────────────────────────────────────────────────────
+-->
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#EAF6FB">
+<meta name="supported-color-schemes" content="light">
+<title>미야코지마 여행 일정</title>
+
+<link rel="apple-touch-icon" sizes="180x180" href="images/miyako-180.png">
+<link rel="icon" type="image/png" sizes="512x512" href="images/miyako-512.png">
+<link rel="icon" type="image/png" sizes="180x180" href="images/miyako-180.png">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junikim0612.github.io/miyako/">
+<meta property="og:title" content="미야코지마 여행 일정">
+<meta property="og:description" content="2026.08.11(화) — 08.14(금) / 3박 4일">
+<meta property="og:image" content="https://junikim0612.github.io/miyako/images/miyako-512.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root {
+  color-scheme: light only;
+
+  --sky:        #1B9AD1;
+  --sky-light:  #7FD5F0;
+  --sky-deep:   #0E6E99;
+  --aqua:       #16B3A6;
+  --sand:       #E3A567;
+  --coral:      #EE8368;
+  --sea:        #2A5A80;
+
+  --canvas:     #FFFFFF;
+  --canvas-soft:#F2F9FC;
+  --tint:       #EAF6FB;
+  --hairline:   #DDEDF5;
+
+  --ink:        #0F3348;
+  --ink-2:      #2F5F79;
+  --ink-3:      #6B90A5;
+  --on-dark:    #FFFFFF;
+
+  --sh-1: 0 1px 3px rgba(15, 70, 100, 0.07);
+  --sh-2: 0 10px 30px -12px rgba(15, 70, 100, 0.28), 0 2px 6px rgba(15, 70, 100, 0.05);
+
+  --r-sm: 8px; --r-md: 12px; --r-lg: 16px; --r-xl: 22px; --r-pill: 9999px;
+  --font: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* 다크모드에서도 배경이 검게 뜨지 않도록 고정 */
+html {
+  background-color: #EAF6FB !important;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+body {
+  background-color: #EAF6FB !important;
+  background-image:
+    radial-gradient(120% 70% at 50% 0%, #FFFFFF 0%, rgba(255,255,255,0) 55%),
+    linear-gradient(180deg, #EAF6FB 0%, #F5FBFD 30%, #EAF6FB 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: -0.2px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+@media (prefers-color-scheme: dark) {
+  html, body { background-color: #EAF6FB !important; color: #0F3348 !important; }
+  .lb-card, .lb-body { background-color: #FFFFFF !important; }
+  .day-card { background-color: #F8FCFE !important; }
+  .row .t { color: var(--sky-deep) !important; }
+  .facts { background-image: linear-gradient(135deg, #F3FAFD 0%, #E7F4FA 100%) !important; background-color: #F3FAFD !important; }
+  .book { background-image: linear-gradient(160deg, #F7FCFE 0%, #E9F5FA 100%) !important; background-color: #F7FCFE !important; }
+  .memo { background-image: linear-gradient(150deg, #12708F 0%, #0E4E70 55%, #123D57 100%) !important; background-color: #0E4E70 !important; }
+  .memo h2 { color: #FFFFFF !important; }
+  .memo-row .k { color: #8FE0DA !important; }
+  .memo-row .v { color: rgba(255,255,255,0.92) !important; }
+  .pill { background-color: color-mix(in srgb, var(--pc) 9%, #ffffff) !important; }
+  .day-title, .day-theme, .day-num { color: #FFFFFF !important; }
+  .day-head { background-image: linear-gradient(150deg, var(--deep-a) 0%, var(--deep-b) 100%) !important; }
+  .day-num { background-color: rgba(255,255,255,0.26) !important; }
+  .row .title, .book-name, .lb-title, .fact .v, .book-grid .v { color: #0F3348 !important; }
+  .row .note, .lb-desc, .book-meta, .hero-lead { color: #2F5F79 !important; }
+  .row .sub, .fact .k, .book-desc, .legend span, .footer, .lb-addr { color: #6B90A5 !important; }
+  .memo, .memo * { text-shadow: none; }
+  .fly-strip, .board { color: #FFFFFF !important; }
+}
+.tnum { font-feature-settings: "tnum"; }
+
+.wrap { max-width: 560px; margin: 0 auto; padding: 0 20px; }
+
+/* ═══════ HERO ═══════ */
+.hero { position: relative; padding: 52px 20px 24px; overflow: hidden; }
+.mesh { position: absolute; top: -80px; left: -20%; right: -20%; height: 520px; z-index: 0; pointer-events: none; }
+.hero-inner { position: relative; z-index: 1; max-width: 560px; margin: 0 auto; }
+.eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase;
+  color: #0B5E85; margin-bottom: 14px;
+}
+.hero h1 {
+  font-size: 44px; font-weight: 800; line-height: 1.08; letter-spacing: -1.8px;
+  color: var(--ink); margin-bottom: 14px;
+}
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(100deg, #1B9AD1 0%, #16B3A6 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero-lead { font-size: 15.5px; font-weight: 500; color: #23536D; margin-bottom: 14px; }
+.hero-dates {
+  display: inline-block; font-size: 13.5px; font-weight: 700; color: #08536F;
+  background: linear-gradient(135deg, #CDEBF7 0%, #B7E4E0 100%);
+  border: 1px solid rgba(11,94,133,0.14);
+  padding: 8px 15px; border-radius: var(--r-pill);
+  font-feature-settings: "tnum";
+}
+
+/* ═══════ 항공편 ═══════ */
+.board {
+  margin-top: 24px;
+  border-radius: var(--r-xl);
+  padding: 22px;
+  color: var(--on-dark);
+  background: linear-gradient(150deg, #2FB4DC 0%, #1B8FC4 45%, #12628C 100%);
+  box-shadow: var(--sh-2);
+  position: relative;
+  overflow: hidden;
+}
+.board::after {
+  content: '';
+  position: absolute; right: -60px; top: -70px;
+  width: 220px; height: 220px; border-radius: 50%;
+  background: rgba(255,255,255,0.10);
+}
+.board-head {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; gap: 8px;
+  padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.22);
+}
+.board-head .label { font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.88); }
+.board-head .airline { margin-left: auto; font-size: 13px; color: rgba(255,255,255,0.86); }
+.leg { position: relative; z-index: 1; padding-top: 18px; }
+.leg + .leg { border-top: 1px solid rgba(255,255,255,0.22); margin-top: 18px; }
+.leg-top { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.tag {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.2px;
+  background: rgba(255,255,255,0.95); color: #12628C;
+  padding: 3px 10px; border-radius: var(--r-pill);
+}
+.tag.back { background: rgba(255,255,255,0.22); color: #fff; }
+.leg-date { font-size: 13.5px; font-weight: 700; font-feature-settings: "tnum"; }
+.leg-dur { margin-left: auto; font-size: 12.5px; color: rgba(255,255,255,0.88); font-feature-settings: "tnum"; }
+.leg-body { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 8px; }
+.pt.right { text-align: right; }
+.pt .time { font-size: 30px; font-weight: 700; line-height: 1.1; letter-spacing: -1px; font-feature-settings: "tnum"; }
+.pt .code { font-size: 13px; font-weight: 700; letter-spacing: 1px; color: rgba(255,255,255,0.9); margin-top: 3px; }
+.pt .place { font-size: 11.5px; color: rgba(255,255,255,0.82); margin-top: 1px; }
+.arc { display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 84px; padding: 0 4px; }
+.arc-line { position: relative; width: 100%; height: 1px; background: rgba(255,255,255,0.45); }
+.arc-line::after {
+  content: '✈'; position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -55%); font-size: 12px; line-height: 1;
+  background: #1B8FC4; padding: 0 5px;
+}
+.arc .no { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.8); }
+.leg-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 12px; font-size: 12px; color: rgba(255,255,255,0.85); }
+.leg-foot i { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,0.45); }
+
+/* ═══════ FACTS ═══════ */
+.facts {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  background: linear-gradient(135deg, #F3FAFD 0%, #E7F4FA 100%); border: 1px solid var(--hairline);
+  border-radius: var(--r-lg); margin-top: 12px; overflow: hidden;
+  box-shadow: var(--sh-1);
+}
+.fact { padding: 13px 10px; text-align: center; }
+.fact + .fact { border-left: 1px solid var(--hairline); }
+.fact .k { font-size: 11px; font-weight: 600; color: var(--ink-3); margin-bottom: 4px; }
+.fact .v { font-size: 14.5px; font-weight: 700; color: var(--ink); font-feature-settings: "tnum"; letter-spacing: -0.4px; }
+
+/* ═══════ 예약 카드 ═══════ */
+.books { display: grid; gap: 10px; margin-top: 10px; }
+.book {
+  background: linear-gradient(160deg, #F7FCFE 0%, #E9F5FA 100%); border: 1px solid var(--hairline);
+  border-radius: var(--r-lg); padding: 18px 20px; box-shadow: var(--sh-1);
+}
+.book-top { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; flex-wrap: wrap; }
+.book-kind {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.4px;
+  color: #fff; background: var(--sky);
+  padding: 4px 10px; border-radius: var(--r-pill);
+}
+.book-name { font-size: 17px; font-weight: 700; letter-spacing: -0.5px; }
+.book-desc { font-size: 12.5px; color: var(--ink-3); margin-bottom: 12px; }
+.book-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  padding: 12px 0; border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline);
+}
+.book-grid .k { font-size: 11px; font-weight: 600; color: var(--ink-3); margin-bottom: 3px; }
+.book-grid .v { font-size: 15px; font-weight: 700; font-feature-settings: "tnum"; letter-spacing: -0.4px; }
+.book-meta { display: flex; flex-direction: column; gap: 5px; margin-top: 12px; font-size: 12.5px; color: var(--ink-2); }
+.book-meta b { font-weight: 700; color: var(--ink); }
+.book-call {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 14px;
+  padding: 11px 18px; min-height: 44px; border-radius: var(--r-pill);
+  background: var(--sky); color: #fff; font-size: 14px; font-weight: 700; text-decoration: none;
+  box-shadow: 0 6px 16px -8px rgba(27,154,209,0.9);
+}
+.book-call:active { background: var(--sky-deep); }
+
+.maplink {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin-top: 12px; padding: 14px; min-height: 48px;
+  border-radius: var(--r-pill); text-decoration: none;
+  background: linear-gradient(135deg, #2FB4DC 0%, #12628C 100%);
+  color: #fff; font-size: 15px; font-weight: 700; letter-spacing: -0.3px;
+  box-shadow: 0 10px 24px -14px rgba(18,98,140,0.95);
+}
+.maplink:active { filter: brightness(0.92); }
+
+/* ═══════ DAY NAV ═══════ */
+.daynav { display: flex; gap: 6px; margin-top: 14px; }
+.pill {
+  flex: 1 1 0; min-width: 0; text-align: center;
+  background-color: color-mix(in srgb, var(--pc) 9%, #ffffff);
+  font-family: var(--font); font-size: 13.5px; font-weight: 700; line-height: 1;
+  padding: 13px 6px; min-height: 44px; border-radius: var(--r-pill);
+  border: 1px solid var(--pc); background: var(--canvas); color: var(--pc);
+  cursor: pointer; -webkit-appearance: none; appearance: none;
+  -webkit-tap-highlight-color: transparent; transition: background 0.16s ease, color 0.16s ease;
+  --pc: var(--sky);
+}
+.pill .d { font-feature-settings: "tnum"; font-weight: 600; opacity: 0.66; margin-left: 4px; }
+.pill.p1 { --pc: #1B9AD1; } .pill.p2 { --pc: #16A79B; }
+.pill.p3 { --pc: #D08B45; } .pill.p4 { --pc: #2A5A80; }
+.pill:active, .pill:hover { background: var(--pc); color: #fff; }
+.pill:active .d, .pill:hover .d { opacity: 0.85; }
+.pill:focus-visible { outline: 2px solid var(--sky-deep); outline-offset: 2px; }
+
+/* ═══════ DAY ═══════ */
+.day { margin-top: 32px; scroll-margin-top: 12px; --accent: var(--sky); --accent-soft: var(--tint); }
+.day.d1 { --accent: #1B9AD1; --accent-soft: #E4F5FC; --tint-a: #CFEAF7; --tint-b: #EAF7FC; --card-bg: #F6FBFE; --deep-a: #2FADDD; --deep-b: #0C6791; }
+.day.d2 { --accent: #16A79B; --accent-soft: #E0F6F3; --tint-a: #CFEEE9; --tint-b: #E9F8F6; --card-bg: #F5FCFB; --deep-a: #24BCAE; --deep-b: #0A776F; }
+.day.d3 { --accent: #D08B45; --accent-soft: #FBF0E2; --tint-a: #F4E2CB; --tint-b: #FBF2E6; --card-bg: #FEFAF5; --deep-a: #E19A54; --deep-b: #A96A2C; }
+.day.d4 { --accent: #2A5A80; --accent-soft: #E6EFF6; --tint-a: #D7E5F0; --tint-b: #EDF4F9; --card-bg: #F7FAFD; --deep-a: #3E7BA8; --deep-b: #17415E; }
+.day-card {
+  background: #F8FCFE; border: 1px solid var(--hairline);
+  border-radius: var(--r-lg); padding: 0 20px 18px; box-shadow: var(--sh-1); overflow: hidden;
+}
+.day-card::before { content: none; }
+.day-head {
+  margin: 0 -20px 6px;
+  padding: 22px 20px 20px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(150deg, var(--deep-a) 0%, var(--deep-b) 100%);
+  border-bottom: none;
+  box-shadow: 0 8px 20px -14px rgba(15,70,100,0.9);
+}
+.day-head::after {
+  content: '';
+  position: absolute; right: -46px; top: -70px;
+  width: 190px; height: 190px; border-radius: 50%;
+  background: rgba(255,255,255,0.10);
+}
+.day-head > * { position: relative; z-index: 1; }
+.day-num {
+  display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  color: #fff; background: rgba(255,255,255,0.26); padding: 4px 11px; border-radius: var(--r-pill); margin-bottom: 12px;
+}
+.day-title { font-size: 28px; font-weight: 800; line-height: 1.15; letter-spacing: -1.1px; color: #fff; margin-bottom: 6px; font-feature-settings: "tnum"; }
+.day-title .dow { font-size: 19px; font-weight: 600; color: rgba(255,255,255,0.72); }
+.day-theme { font-size: 14.5px; font-weight: 500; color: rgba(255,255,255,0.9); }
+
+/* ═══════ TIMELINE ═══════ */
+.row { display: flex; gap: 14px; padding: 16px 0; }
+.row + .row { border-top: 1px solid var(--hairline); }
+.row .t {
+  flex: 0 0 46px; font-size: 14px; font-weight: 700; color: var(--sky-deep);
+  font-feature-settings: "tnum"; letter-spacing: -0.4px; padding-top: 2px;
+}
+.row .c { flex: 1; min-width: 0; }
+.row-head { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; }
+.chip { font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: var(--r-pill); flex-shrink: 0; }
+.chip.meal { background: #FDEEE9; color: #C7563A; }
+.chip.spot { background: #E4F5FC; color: #0E6E99; }
+.chip.move { background: #EDF3F7; color: #5E8298; }
+.chip.rest { background: #E0F6F3; color: #0E8B80; }
+.chip.fly  { background: linear-gradient(135deg,#1B9AD1,#12628C); color: #fff; }
+.row .title { font-size: 16px; font-weight: 700; line-height: 1.45; letter-spacing: -0.4px; }
+.row .note { font-size: 14.5px; color: var(--ink-2); margin-top: 4px; }
+.row .sub  { font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+
+/* 사진 슬롯 */
+.shot {
+  margin-top: 12px; width: 100%; aspect-ratio: 4 / 3;
+  border-radius: var(--r-md); overflow: hidden; position: relative;
+  background: var(--canvas-soft); cursor: pointer; box-shadow: var(--sh-1);
+}
+.shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.shot[data-fallback]::after {
+  content: attr(data-label); position: absolute; inset: 0;
+  display: flex; align-items: flex-end; padding: 18px;
+  font-size: 18px; font-weight: 700; letter-spacing: -0.4px; color: #fff;
+  background: var(--fill, linear-gradient(145deg, #8FDCF3 0%, #2FB0DC 55%, #14719E 100%));
+  text-shadow: 0 1px 8px rgba(10,50,70,0.25);
+}
+.f-sky    { --fill: linear-gradient(145deg, #8FDCF3 0%, #2FB0DC 55%, #14719E 100%); }
+.f-aqua   { --fill: linear-gradient(145deg, #9BE9DE 0%, #22BCAE 55%, #0E8378 100%); }
+.f-sand   { --fill: linear-gradient(145deg, #FBEBD3 0%, #E7B075 50%, #C07E3C 100%); }
+.f-sunset { --fill: linear-gradient(145deg, #FFE0C6 0%, #F79C7E 50%, #E0705F 100%); }
+.f-deep   { --fill: linear-gradient(145deg, #6FB6D8 0%, #2F6D95 55%, #14405C 100%); }
+.f-mist   { --fill: linear-gradient(145deg, #DCF0F8 0%, #9CCBE2 50%, #5C93B4 100%); }
+.shot::before {
+  content: ''; position: absolute; top: 10px; right: 10px;
+  width: 26px; height: 26px; border-radius: 50%;
+  background: rgba(255,255,255,0.22);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); z-index: 2;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><line x1='12' y1='8' x2='12' y2='12'/><line x1='12' y1='16' x2='12.01' y2='16'/><circle cx='12' cy='12' r='10'/></svg>");
+  background-repeat: no-repeat; background-position: center; pointer-events: none;
+}
+
+.fly-strip {
+  margin-top: 12px; border-radius: var(--r-md); padding: 13px 16px;
+  background: linear-gradient(135deg, #1B9AD1 0%, #12628C 100%);
+  color: #fff; display: flex; align-items: center; gap: 10px; font-feature-settings: "tnum";
+  box-shadow: 0 8px 20px -12px rgba(18,98,140,0.9);
+}
+.fly-strip .code { font-size: 16px; font-weight: 700; letter-spacing: 1px; }
+.fly-strip .mid { flex: 1; text-align: center; font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.9); letter-spacing: -0.4px; }
+
+
+/* ═══════ 동선 지도 ═══════ */
+.routes { margin-top: 32px; }
+.rcard { background: #F8FCFE; border: 1px solid var(--hairline); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--sh-1); }
+.rhead { padding: 22px 20px 14px; }
+.rtitle { font-size: 21px; font-weight: 800; letter-spacing: -0.8px; }
+.rsub { font-size: 13px; color: var(--ink-3); margin-top: 5px; }
+.rtabs { display: flex; gap: 6px; padding: 0 20px 14px; }
+.rtab {
+  flex: 1 1 0; font-family: var(--font); font-size: 13.5px; font-weight: 700; line-height: 1.15;
+  padding: 10px 4px; min-height: 46px; border-radius: var(--r-pill);
+  border: 1px solid var(--rc); background: color-mix(in srgb, var(--rc) 9%, #ffffff);
+  color: var(--rc); cursor: pointer; -webkit-appearance: none; appearance: none;
+}
+.rtab span { display: block; font-size: 11px; font-weight: 600; opacity: 0.7; font-feature-settings: "tnum"; }
+.rtab[aria-pressed="true"] { background: var(--rc); color: #fff; }
+.rtab[aria-pressed="true"] span { opacity: 0.85; }
+.rmap { display: block; width: 100%; height: auto; }
+.route { display: none; }
+.route.on { display: block; }
+.rpanel { display: none; padding: 6px 20px 18px; }
+.rpanel.on { display: block; }
+.rlist { list-style: none; }
+.rlist li { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-top: 1px solid var(--hairline); }
+.rlist li:first-child { border-top: none; }
+.rn { flex: 0 0 24px; height: 24px; border-radius: 50%; color: #fff; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+.rt { flex: 0 0 44px; font-size: 13px; font-weight: 700; color: var(--ink-3); font-feature-settings: "tnum"; }
+.rname { flex: 1; font-size: 15px; font-weight: 600; }
+.rgo {
+  display: block; text-align: center; color: #fff; font-size: 15px; font-weight: 700;
+  text-decoration: none; padding: 15px; min-height: 48px; border-radius: var(--r-pill); margin-top: 12px;
+}
+.rgo:active { filter: brightness(0.92); }
+
+/* ═══════ 메모 ═══════ */
+.memo {
+  margin-top: 32px; border-radius: var(--r-lg); padding: 26px 22px;
+  background: linear-gradient(150deg, #12708F 0%, #0E4E70 55%, #123D57 100%);
+  border: none; box-shadow: var(--sh-2);
+}
+.memo h2 { font-size: 21px; font-weight: 800; letter-spacing: -0.8px; margin-bottom: 16px; color: #fff; }
+.memo-row { display: flex; gap: 14px; padding: 11px 0; }
+.memo-row + .memo-row { border-top: 1px solid rgba(255,255,255,0.16); }
+.memo-row .k { flex: 0 0 62px; font-size: 13px; font-weight: 700; color: #8FE0DA; padding-top: 1px; }
+.memo-row .v { flex: 1; font-size: 14.5px; color: rgba(255,255,255,0.92); }
+
+.legend { display: flex; flex-wrap: wrap; gap: 8px 14px; justify-content: center; margin-top: 26px; }
+.legend span { font-size: 11.5px; color: var(--ink-3); display: flex; align-items: center; gap: 6px; }
+.legend i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+
+.footer { padding: 44px 24px 68px; text-align: center; font-size: 13px; font-weight: 600; color: var(--ink-3); }
+
+.to-top {
+  position: fixed; bottom: 20px; right: 20px; width: 44px; height: 44px;
+  border-radius: 50%; background: var(--sky); color: #fff;
+  display: flex; align-items: center; justify-content: center; text-decoration: none;
+  box-shadow: 0 10px 24px -10px rgba(27,154,209,0.95); z-index: 50;
+  opacity: 0; visibility: hidden; transition: opacity 0.2s ease, visibility 0.2s ease; font-size: 15px;
+}
+.to-top.visible { opacity: 1; visibility: visible; }
+.to-map {
+  position: fixed; bottom: 74px; right: 20px; width: 44px; height: 44px;
+  border-radius: 50%; background: #fff; color: var(--sky-deep);
+  display: flex; align-items: center; justify-content: center; text-decoration: none;
+  box-shadow: 0 10px 24px -10px rgba(15,70,100,0.55); border: 1px solid var(--hairline); z-index: 50;
+}
+.to-map:active { background: #EAF6FB; }
+
+/* ═══════ LIGHTBOX ═══════ */
+.lb {
+  position: fixed; inset: 0; background: rgba(12, 52, 74, 0.62);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  z-index: 1000; display: none; align-items: flex-start; justify-content: center;
+  padding: 24px 16px; overflow-y: auto; opacity: 0; transition: opacity 0.24s ease;
+}
+.lb.show { display: flex; opacity: 1; }
+.lb-card { background: var(--canvas); border-radius: var(--r-lg); max-width: 460px; width: 100%; overflow: hidden; box-shadow: var(--sh-2); margin: auto; }
+.lb-visual { position: relative; aspect-ratio: 4 / 3; background: linear-gradient(145deg, #8FDCF3 0%, #2FB0DC 55%, #14719E 100%); }
+.lb-visual.slim { aspect-ratio: auto; height: 72px; }
+.lb-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.lb-visual img.hide { display: none; }
+.lb-x {
+  position: absolute; top: 12px; right: 12px; width: 34px; height: 34px; border: none;
+  border-radius: 50%; background: rgba(255,255,255,0.95); color: var(--ink);
+  font-family: var(--font); font-size: 15px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; z-index: 5;
+  -webkit-appearance: none; appearance: none;
+}
+.lb-body { padding: 22px; }
+.lb-title { font-size: 21px; font-weight: 800; letter-spacing: -0.8px; margin-bottom: 12px; }
+.lb-desc { font-size: 14.5px; line-height: 1.65; color: var(--ink-2); }
+.lb-addr { font-size: 12.5px; color: var(--ink-3); margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--hairline); }
+.lb-addr.hide { display: none; }
+.lb-map {
+  display: inline-flex; align-items: center; justify-content: center; margin-top: 18px;
+  padding: 12px 20px; min-height: 44px; background: var(--sky); color: #fff;
+  border-radius: var(--r-pill); font-size: 15px; font-weight: 700; text-decoration: none;
+}
+.lb-map:active { background: var(--sky-deep); }
+body.lb-open { overflow: hidden; }
+
+@media (max-width: 400px) {
+  .hero h1 { font-size: 38px; letter-spacing: -1.5px; }
+  .pt .time { font-size: 26px; }
+  .arc { min-width: 66px; }
+  .day-title { font-size: 24px; }
+  .row { gap: 11px; }
+  .row .t { flex-basis: 42px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="mesh" viewBox="0 0 800 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <filter id="blur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="66"/></filter>
+      <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#EAF6FB" stop-opacity="0"/>
+        <stop offset="100%" stop-color="#EAF6FB" stop-opacity="1"/>
+      </linearGradient>
+    </defs>
+    <g filter="url(#blur)">
+      <ellipse cx="110" cy="80"  rx="220" ry="150" fill="#BDE9F7"/>
+      <ellipse cx="340" cy="40"  rx="200" ry="130" fill="#8FE0DA" opacity="0.75"/>
+      <ellipse cx="560" cy="110" rx="220" ry="150" fill="#7FD5F0" opacity="0.8"/>
+      <ellipse cx="770" cy="60"  rx="190" ry="140" fill="#FBE3C8" opacity="0.7"/>
+      <ellipse cx="430" cy="220" rx="260" ry="120" fill="#4FC3E8" opacity="0.35"/>
+    </g>
+    <rect x="0" y="0" width="800" height="520" fill="#FFFFFF" opacity="0.48"/>
+    <rect x="0" y="210" width="800" height="310" fill="url(#fade)"/>
+  </svg>
+
+  <div class="hero-inner">
+    <div class="eyebrow">Miyakojima / 3 nights 4 days</div>
+    <h1>미야코지마</h1>
+    <p class="hero-lead">다리 세 개로 이어진 작은 섬들과, 일본에서 가장 맑다는 바다. 차로 30분이면 섬 어디든 닿습니다.</p>
+    <p class="hero-dates">2026.08.11 (화) — 2026.08.14 (금)</p>
+
+    <section class="board">
+      <div class="board-head">
+        <span class="label">Flights</span>
+        <span class="airline">진에어 / Boeing 737 MAX 8</span>
+      </div>
+
+      <div class="leg">
+        <div class="leg-top">
+          <span class="tag">가는편</span>
+          <span class="leg-date">8월 11일 (화)</span>
+          <span class="leg-dur">2시간 35분</span>
+        </div>
+        <div class="leg-body">
+          <div class="pt"><div class="time">08:25</div><div class="code">ICN</div><div class="place">인천 T2</div></div>
+          <div class="arc"><div class="arc-line"></div><div class="no">LJ357</div></div>
+          <div class="pt right"><div class="time">11:00</div><div class="code">SHI</div><div class="place">시모지시마 T1</div></div>
+        </div>
+        <div class="leg-foot"><span>일반석 Z</span><i></i><span>수하물 15kg</span></div>
+      </div>
+
+      <div class="leg">
+        <div class="leg-top">
+          <span class="tag back">오는편</span>
+          <span class="leg-date">8월 14일 (금)</span>
+          <span class="leg-dur">2시간 30분</span>
+        </div>
+        <div class="leg-body">
+          <div class="pt"><div class="time">12:00</div><div class="code">SHI</div><div class="place">시모지시마 T1</div></div>
+          <div class="arc"><div class="arc-line"></div><div class="no">LJ358</div></div>
+          <div class="pt right"><div class="time">14:30</div><div class="code">ICN</div><div class="place">인천 T2</div></div>
+        </div>
+        <div class="leg-foot"><span>일반석 N</span><i></i><span>수하물 15kg</span></div>
+      </div>
+    </section>
+
+    <div class="facts">
+      <div class="fact"><div class="k">1,000엔</div><div class="v">약 9,400원</div></div>
+      <div class="fact"><div class="k">시차</div><div class="v">없음</div></div>
+      <div class="fact"><div class="k">일몰</div><div class="v">19:10</div></div>
+    </div>
+
+    <section class="books">
+      <div class="book">
+        <div class="book-top">
+          <span class="book-kind">숙소</span>
+          <span class="book-name">Hotel Locus</span>
+        </div>
+        <div class="book-desc">미야코지마 히라라 / 파이나가마 비치 앞 / 객실 1개</div>
+        <div class="book-grid">
+          <div><div class="k">체크인</div><div class="v">8/11 (화) 15:00</div></div>
+          <div><div class="k">체크아웃</div><div class="v">8/14 (금) 11:00</div></div>
+        </div>
+        <div class="book-meta"><span>시내 중심이라 저녁 식당과 편의점이 걸어서 가깝습니다.</span></div>
+      </div>
+
+      <div class="book">
+        <div class="book-top">
+          <span class="book-kind">렌터카</span>
+          <span class="book-name">버젯 시모지시마 공항점</span>
+        </div>
+        <div class="book-desc">스즈키 왜건 R 또는 동급 / 오토 / 예약번호 OT121272</div>
+        <div class="book-grid">
+          <div><div class="k">대여</div><div class="v">8/11 (화) 12:00</div></div>
+          <div><div class="k">반납</div><div class="v">8/14 (금) 11:00</div></div>
+        </div>
+        <div class="book-meta">
+          <span><b>셔틀</b> 09:00~17:30 (도착 후 지점에 전화)</span>
+          <span><b>주유</b> 가득 채워 반납</span>
+          <span><b>준비물</b> 여권 / 국내면허증 / 국제운전면허증 / 운전자 명의 실물 신용카드</span>
+        </div>
+        <a class="book-call" href="tel:+819806600018">지점 전화 +81 980 66 0018</a>
+      </div>
+    </section>
+
+    <nav class="daynav">
+      <button class="pill p1" type="button" onclick="goDay('day1')">1일<span class="d">8/11</span></button>
+      <button class="pill p2" type="button" onclick="goDay('day2')">2일<span class="d">8/12</span></button>
+      <button class="pill p3" type="button" onclick="goDay('day3')">3일<span class="d">8/13</span></button>
+      <button class="pill p4" type="button" onclick="goDay('day4')">4일<span class="d">8/14</span></button>
+    </nav>
+  </div>
+</header>
+
+<audio id="bgm" loop autoplay preload="auto" playsinline
+       style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;">
+  <source src="audio/bgm.mp3" type="audio/mpeg">
+  <source src="audio/wave-to-earth-bad.mp3" type="audio/mpeg">
+</audio>
+
+<main class="wrap">
+<section class="day d1" id="day1">
+  <div class="day-card">
+    <div class="day-head">
+      <div class="day-num">Day 01</div>
+      <div class="day-title">8월 11일 <span class="dow">화</span></div>
+      <div class="day-theme">도착 / 이라부섬 / 첫 바다</div>
+    </div>
+
+    <div class="row">
+      <div class="t">06:00</div>
+      <div class="c">
+        <div class="row-head"><span class="chip move">이동</span><span class="title">인천공항 제2터미널</span></div>
+        <div class="note">진에어 카운터 체크인 / 수하물 15kg</div>
+        <div class="shot f-mist" data-no="01" data-fallback="true" data-srcs="images/01.jpg|images/01.jpeg|images/01.png|images/icn.jpg|images/icn.jpeg|images/icn.png" data-label="ICN Terminal 2"
+             data-desc="인천공항 제2여객터미널입니다. 진에어는 T2에서 출발하며, 성수기 아침에는 보안검색 줄이 길어질 수 있어 두 시간 전 도착이 안전합니다."
+             data-map="인천국제공항 제2여객터미널">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">08:25</div>
+      <div class="c">
+        <div class="row-head"><span class="chip fly">항공</span><span class="title">LJ357 탑승</span></div>
+        <div class="fly-strip"><span class="code">ICN</span><span class="mid">08:25 ─── 11:00</span><span class="code">SHI</span></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">11:00</div>
+      <div class="c">
+        <div class="row-head"><span class="chip move">이동</span><span class="title">시모지시마 공항 도착</span></div>
+        <div class="note">입국 심사와 짐 찾기까지 20분 정도</div>
+        <div class="shot f-sky" data-no="02" data-fallback="true" data-srcs="images/02.jpg|images/02.jpeg|images/02.png|images/shimoji-airport.jpg|images/shimoji-airport.jpeg|images/shimoji-airport.png" data-label="下地島空港"
+             data-desc="이라부섬 서쪽에 있는 작은 국제공항입니다. 터미널이 하나뿐이라 입국 절차가 빠르고, 바다를 향해 열린 통유리 대합실이 인상적입니다."
+             data-map="下地島空港">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">11:20</div>
+      <div class="c">
+        <div class="row-head"><span class="chip move">이동</span><span class="title">버젯 지점에 픽업 전화</span></div>
+        <div class="note">짐 찾은 뒤 +81 980 66 0018 로 전화하면 셔틀이 옵니다</div>
+        <div class="sub">셔틀 운영 09:00~17:30</div>
+        <div class="shot f-mist" data-no="03" data-fallback="true" data-srcs="images/03.jpg|images/03.jpeg|images/03.png|images/rentcar.jpg|images/rentcar.jpeg|images/rentcar.png" data-label="Budget 시모지시마"
+             data-desc="공항에서 차로 5분 거리의 버젯 렌터카 지점입니다. 공항 카운터가 없어 도착 후 전화로 셔틀을 부르는 방식이며, 셔틀은 09:00부터 17:30까지 운행합니다."
+             data-map="バジェットレンタカー 下地島空港">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">12:00</div>
+      <div class="c">
+        <div class="row-head"><span class="chip move">이동</span><span class="title">렌터카 인수</span></div>
+        <div class="note">스즈키 왜건 R 또는 동급 / 오토 / 좌측통행</div>
+        <div class="sub">여권 + 국내면허증 + 국제운전면허증 + 운전자 명의 실물 신용카드</div>
+        <div class="shot f-deep" data-no="04" data-fallback="true" data-srcs="images/04.jpg|images/04.jpeg|images/04.png|images/wagonr.jpg|images/wagonr.jpeg|images/wagonr.png" data-label="Suzuki Wagon R"
+             data-desc="경차급 오토 차량입니다. 섬 도로는 좁고 제한속도가 낮아 작은 차가 오히려 편합니다. 출발 전 계기판과 외관을 사진으로 남겨두세요."
+             data-map="バジェットレンタカー 下地島空港">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">12:40</div>
+      <div class="c">
+        <div class="row-head"><span class="chip meal">식사</span><span class="title">스무리 소바</span></div>
+        <div class="note">이라부섬 문어 소바 / 첫 끼로 가볍게</div>
+        <div class="sub">미야코지마시 이라부 사와다 / 지점에서 차로 10분</div>
+        <div class="shot f-sand" data-no="05" data-fallback="true" data-srcs="images/05.jpg|images/05.jpeg|images/05.png|images/sumubari.jpg|images/sumubari.jpeg|images/sumubari.png" data-label="そば処 すむばり"
+             data-desc="이라부섬 북쪽의 소바집입니다. 문어를 통째로 올린 타코소바가 간판 메뉴이고, 맑고 담백한 미야코소바 국물이라 비행기에서 내린 직후 첫 끼로 부담이 없습니다."
+             data-map="そば処すむばり 宮古島">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">13:50</div>
+      <div class="c">
+        <div class="row-head"><span class="chip spot">관광</span><span class="title">사와다노하마 해변</span></div>
+        <div class="note">거대한 바위가 흩어진 얕은 해변 / 발만 담그기</div>
+        <div class="sub">이라부섬 서쪽 / 주차 무료</div>
+        <div class="shot f-aqua" data-no="06" data-fallback="true" data-srcs="images/06.jpg|images/06.jpeg|images/06.png|images/sawada.jpg|images/sawada.jpeg|images/sawada.png" data-label="佐和田の浜"
+             data-desc="쓰나미가 밀어 올린 거대한 바위들이 얕은 바다에 흩어져 있는 독특한 해변입니다. 수심이 얕아 산책과 사진에 좋고, 해질 무렵 실루엣 풍경으로 유명합니다."
+             data-map="佐和田の浜 宮古島">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">14:30</div>
+      <div class="c">
+        <div class="row-head"><span class="chip spot">관광</span><span class="title">17END</span></div>
+        <div class="note">활주로 끝 에메랄드 바다 / 착륙하는 비행기가 머리 위로 지나갑니다</div>
+        <div class="sub">시기에 따라 통행이 제한될 수 있음</div>
+        <div class="shot f-sky" data-no="07" data-fallback="true" data-srcs="images/07.jpg|images/07.jpeg|images/07.png|images/17end.jpg|images/17end.jpeg|images/17end.png" data-label="17END"
+             data-desc="시모지시마 공항 활주로 북쪽 끝의 해변입니다. 썰물 때 하얀 모래톱이 드러나면서 바다 색이 층층이 갈라져 보입니다. 도로와 주차 통제가 수시로 바뀌니 현장 안내를 따르세요."
+             data-map="17END 下地島">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">15:30</div>
+      <div class="c">
+        <div class="row-head"><span class="chip move">이동</span><span class="title">이라부대교 드라이브</span></div>
+        <div class="note">3,540m 무료 통행 다리 / 중간 전망 주차장에서 정차</div>
+        <div class="shot f-deep" data-no="08" data-fallback="true" data-srcs="images/08.jpg|images/08.jpeg|images/08.png|images/irabu-bridge.jpg|images/irabu-bridge.jpeg|images/irabu-bridge.png" data-label="伊良部大橋"
+             data-desc="이라부섬과 미야코 본섬을 잇는 3,540m 다리로, 통행료 없는 다리 중 일본에서 가장 깁니다. 중간에 차를 세울 수 있는 전망 공간이 있습니다."
+             data-map="伊良部大橋">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">16:10</div>
+      <div class="c">
+        <div class="row-head"><span class="chip rest">휴식</span><span class="title">Hotel Locus 체크인</span></div>
+        <div class="note">체크인은 15:00부터 / 짐 풀고 샤워</div>
+        <div class="sub">파이나가마 비치 바로 앞 / 히라라 시내</div>
+        <div class="shot f-mist" data-no="09" data-fallback="true" data-srcs="images/09.jpg|images/09.jpeg|images/09.png|images/hotel-locus.jpg|images/hotel-locus.jpeg|images/hotel-locus.png" data-label="Hotel Locus"
+             data-desc="히라라 시내 해변가에 있는 부티크 호텔입니다. 파이나가마 비치가 바로 앞이고 시내 식당과 편의점이 걸어서 가까워 렌터카를 세워두고 저녁을 보내기 좋습니다."
+             data-map="Hotel Locus 宮古島">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">17:40</div>
+      <div class="c">
+        <div class="row-head"><span class="chip spot">관광</span><span class="title">파이나가마 비치</span></div>
+        <div class="note">숙소 바로 앞 해변 / 비치 바에서 일몰 보기</div>
+        <div class="sub">일몰 19:10 전후</div>
+        <div class="shot f-sunset" data-no="10" data-fallback="true" data-srcs="images/10.jpg|images/10.jpeg|images/10.png|images/painagama.jpg|images/painagama.jpeg|images/painagama.png" data-label="パイナガマビーチ"
+             data-desc="히라라 시내의 시민 해변입니다. 해질 무렵이면 현지 사람들이 산책을 나오고, 여름에는 해변 옆 바에서 음료를 마시며 일몰을 볼 수 있습니다."
+             data-map="パイナガマビーチ 宮古島">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">19:20</div>
+      <div class="c">
+        <div class="row-head"><span class="chip meal">식사</span><span class="title">저녁 / 시내 이자카야</span></div>
+        <div class="note">고야(郷家) 오키나와 민요 라이브 / 예약 권장</div>
+        <div class="sub">히라라 시내 / 운전 담당은 음주 금지</div>
+        <div class="shot f-sand" data-no="11" data-fallback="true" data-srcs="images/11.jpg|images/11.jpeg|images/11.png|images/kyoya.jpg|images/kyoya.jpeg|images/kyoya.png" data-label="郷家"
+             data-desc="오키나와 민요 라이브 공연을 매일 저녁 진행하는 대형 이자카야입니다. 고야두부 참프루, 바다포도, 아구 돼지 요리 등 향토 음식을 한 번에 맛볼 수 있습니다."
+             data-map="郷家 宮古島">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="day d2" id="day2">
+  <div class="day-card">
+    <div class="day-head">
+      <div class="day-num">Day 02</div>
+      <div class="day-title">8월 12일 <span class="dow">수</span></div>
+      <div class="day-theme">야비지 스노클링 / 오후는 휴식</div>
+    </div>
+
+    <div class="row">
+      <div class="t">07:20</div>
+      <div class="c">
+        <div class="row-head"><span class="chip move">이동</span><span class="title">집합 장소 이동</span></div>
+        <div class="note">수영복은 미리 입고 출발 / 갈아입을 옷 챙기기</div>
+        <div class="shot f-mist" data-no="12" data-fallback="true" data-srcs="images/12.jpg|images/12.jpeg|images/12.png|images/port.jpg|images/port.jpeg|images/port.png" data-label="히라라항 집합"
+             data-desc="투어 배가 출발하는 항구입니다. 주차 공간이 넉넉하지 않으니 조금 일찍 도착하는 편이 좋고, 배 위에서는 그늘이 적어 래시가드가 필요합니다."
+             data-map="平良港 宮古島">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">07:40</div>
+      <div class="c">
+        <div class="row-head"><span class="chip spot">관광</span><span class="title">야비지 스노클링 보트투어</span></div>
+        <div class="note">한국어 가이드 / 수중 + 드론 촬영 포함 / 12:10 종료</div>
+        <div class="sub">예약 완료 (2인) / 기상 악화 시 변경 안내가 옵니다</div>
+        <div class="shot f-aqua" data-no="13" data-fallback="true" data-srcs="images/13.jpg|images/13.jpeg|images/13.png|images/yabiji.jpg|images/yabiji.jpeg|images/yabiji.png" data-label="八重干瀬 야비지"
+             data-desc="미야코지마 북쪽 바다에 펼쳐진 일본 최대 규모의 산호초 군락입니다. 100종이 넘는 산호와 열대어를 볼 수 있고, 조수에 따라 산호초가 수면 가까이 올라오면 환상의 대륙이라 불리는 풍경이 나타납니다."
+             data-map="八重干瀬 宮古島">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">12:40</div>
+      <div class="c">
+        <div class="row-head"><span class="chip meal">식사</span><span class="title">코자 소바</span></div>
+        <div class="note">현지인이 줄 서는 미야코소바 / 소키소바 추천</div>
+        <div class="sub">히라라 시내 / 재료 소진 시 조기 마감</div>
+        <div class="shot f-sand" data-no="14" data-fallback="true" data-srcs="images/14.jpg|images/14.jpeg|images/14.png|images/koja-soba.jpg|images/koja-soba.jpeg|images/koja-soba.png" data-label="古謝そば屋"
+             data-desc="미야코지마에서 가장 유명한 소바집 중 하나입니다. 돼지 뼈와 가다랑어로 낸 맑은 국물에 납작한 면을 쓰고, 부드럽게 조린 소키를 올린 소키소바가 대표 메뉴입니다."
+             data-map="古謝そば屋 宮古島">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">14:00</div>
+      <div class="c">
+        <div class="row-head"><span class="chip rest">휴식</span><span class="title">숙소에서 낮잠</span></div>
+        <div class="note">오전에 바다에서 체력을 썼으니 두 시간은 비워둡니다</div>
+        <div class="shot" data-fallback="true" data-label="Hotel Locus"
+             data-desc="투어 후에는 소금기를 씻어내고 쉬어가는 시간이 필요합니다. 오후 두 시부터 네 시 사이가 하루 중 가장 덥고 자외선이 강한 시간대이기도 합니다."
+             data-map="Hotel Locus 宮古島">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">16:20</div>
+      <div class="c">
+        <div class="row-head"><span class="chip spot">관광</span><span class="title">요나하 마에하마 비치</span></div>
+        <div class="note">7km 백사장 / 일본 최고의 해변으로 자주 꼽히는 곳</div>
+        <div class="sub">주차장 / 샤워실 있음</div>
+        <div class="shot f-sky" data-no="15" data-fallback="true" data-srcs="images/15.jpg|images/15.jpeg|images/15.png|images/maehama.jpg|images/maehama.jpeg|images/maehama.png" data-label="与那覇前浜ビーチ"
+             data-desc="약 7km에 이르는 고운 백사장과 완만한 수심으로 일본 최고의 해변으로 자주 꼽힙니다. 파도가 잔잔해 물놀이에 좋고, 구리마대교를 배경으로 한 풍경이 특히 예쁩니다."
+             data-map="与那覇前浜ビーチ 宮古島">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">17:40</div>
+      <div class="c">
+        <div class="row-head"><span class="chip move">이동</span><span class="title">구리마대교 건너기</span></div>
+        <div class="note">바다 위를 달리는 1.7km 다리 / 류큐성 전망대에서 조망</div>
+        <div class="shot f-deep" data-no="16" data-fallback="true" data-srcs="images/16.jpg|images/16.jpeg|images/16.png|images/kurima-bridge.jpg|images/kurima-bridge.jpeg|images/kurima-bridge.png" data-label="来間大橋"
+             data-desc="미야코 본섬과 구리마섬을 잇는 1,690m 다리입니다. 다리를 건너 언덕 위 류큐성 전망대에 오르면 마에하마 해변과 다리가 한눈에 들어옵니다."
+             data-map="来間大橋">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">18:10</div>
+      <div class="c">
+        <div class="row-head"><span class="chip meal">식사</span><span class="title">구리마섬 망고 디저트</span></div>
+        <div class="note">라쿠엔노카지츠 망고 파르페</div>
+        <div class="sub">영업 종료 시간이 이른 편이라 도착 전에 확인</div>
+        <div class="shot f-sunset" data-no="17" data-fallback="true" data-srcs="images/17.jpg|images/17.jpeg|images/17.png|images/rakuen.jpg|images/rakuen.jpeg|images/rakuen.png" data-label="楽園の果実"
+             data-desc="구리마섬의 과일 카페 겸 레스토랑입니다. 섬에서 나는 완숙 망고를 통째로 쓴 파르페와 스무디가 간판 메뉴이고, 테라스에서 사탕수수밭과 바다가 보입니다."
+             data-map="楽園の果実 来間島">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">19:10</div>
+      <div class="c">
+        <div class="row-head"><span class="chip spot">관광</span><span class="title">구리마섬 일몰</span></div>
+        <div class="note">류큐성 전망대 또는 나가마하마 해변에서</div>
+        <div class="shot f-sunset" data-no="18" data-fallback="true" data-srcs="images/18.jpg|images/18.jpeg|images/18.png|images/kurima-sunset.jpg|images/kurima-sunset.jpeg|images/kurima-sunset.png" data-label="来間島 Sunset"
+             data-desc="구리마섬은 섬 서쪽에 있어 바다로 해가 떨어지는 모습을 정면으로 볼 수 있습니다. 8월 중순 일몰은 19:10 전후이니 30분 전에 자리를 잡으세요."
+             data-map="長間浜 来間島">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">20:20</div>
+      <div class="c">
+        <div class="row-head"><span class="chip meal">식사</span><span class="title">저녁 / 해산물 이자카야</span></div>
+        <div class="note">닭새우 / 야광조개 / 참치 사시미</div>
+        <div class="shot f-sand" data-no="19" data-fallback="true" data-srcs="images/19.jpg|images/19.jpeg|images/19.png|images/izakaya.jpg|images/izakaya.jpeg|images/izakaya.png" data-label="島の居酒屋"
+             data-desc="미야코지마 근해에서 잡히는 닭새우와 야광조개, 참치가 대표 메뉴입니다. 시내 이자카야는 저녁 아홉 시 전후로 주문이 마감되는 곳이 많습니다."
+             data-map="居酒屋 宮古島 平良">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="day d3" id="day3">
+  <div class="day-card">
+    <div class="day-head">
+      <div class="day-num">Day 03</div>
+      <div class="day-title">8월 13일 <span class="dow">목</span></div>
+      <div class="day-theme">동쪽 곶 / 북쪽 이케마 드라이브</div>
+    </div>
+
+    <div class="row">
+      <div class="t">10:00</div>
+      <div class="c">
+        <div class="row-head"><span class="chip spot">관광</span><span class="title">히가시헨나자키</span></div>
+        <div class="note">2km 곶 산책로와 등대 / 양쪽이 다 바다입니다</div>
+        <div class="sub">등대 입장 300엔 / 그늘이 없으니 모자 필수</div>
+        <div class="shot f-sky" data-no="20" data-fallback="true" data-srcs="images/20.jpg|images/20.jpeg|images/20.png|images/higashi-hennazaki.jpg|images/higashi-hennazaki.jpeg|images/higashi-hennazaki.png" data-label="東平安名崎"
+             data-desc="섬 동쪽 끝으로 2km가량 가늘게 뻗은 곶입니다. 양옆으로 태평양과 동중국해가 동시에 보이고, 끝에는 올라갈 수 있는 등대가 있습니다."
+             data-map="東平安名崎 宮古島">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">11:30</div>
+      <div class="c">
+        <div class="row-head"><span class="chip spot">관광</span><span class="title">이무갸 마린가든</span></div>
+        <div class="note">천연 방파제 안쪽의 잔잔한 물 / 가벼운 스노클링</div>
+        <div class="sub">전망대 계단에서 보는 색이 예쁩니다</div>
+        <div class="shot f-aqua" data-no="21" data-fallback="true" data-srcs="images/21.jpg|images/21.jpeg|images/21.png|images/imgya.jpg|images/imgya.jpeg|images/imgya.png" data-label="イムギャーマリンガーデン"
+             data-desc="바위가 자연 방파제 역할을 해 파도가 거의 없는 작은 만입니다. 물이 잔잔해 초보자 스노클링에 적합하고, 언덕 전망대에 오르면 만 전체가 내려다보입니다."
+             data-map="イムギャーマリンガーデン 宮古島">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">12:40</div>
+      <div class="c">
+        <div class="row-head"><span class="chip meal">식사</span><span class="title">점심 / 시기라 리조트 주변</span></div>
+        <div class="note">타코라이스 또는 아구 돼지 정식</div>
+        <div class="shot f-mist" data-no="22" data-fallback="true" data-srcs="images/22.jpg|images/22.jpeg|images/22.png|images/shigira.jpg|images/shigira.jpeg|images/shigira.png" data-label="シギラリゾート"
+             data-desc="섬 남쪽의 대형 리조트 단지로 식당과 카페가 모여 있습니다. 오키나와식 타코라이스와 아구 돼지 요리를 파는 곳이 많아 점심 선택지가 넓습니다."
+             data-map="シギラリゾート 宮古島">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">14:00</div>
+      <div class="c">
+        <div class="row-head"><span class="chip rest">휴식</span><span class="title">가장 더운 시간은 실내에서</span></div>
+        <div class="note">숙소 수영장 또는 카페에서 두 시간 쉬어가기</div>
+        <div class="shot f-mist" data-no="23" data-fallback="true" data-srcs="images/23.jpg|images/23.jpeg|images/23.png|images/break.jpg|images/break.jpeg|images/break.png" data-label="Afternoon Break"
+             data-desc="8월 오후 두 시부터 네 시는 체감 온도가 가장 높은 시간대입니다. 무리해서 이동하기보다 실내에서 쉬고 늦은 오후에 다시 움직이는 편이 낫습니다."
+             data-map="カフェ 宮古島 平良">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">16:10</div>
+      <div class="c">
+        <div class="row-head"><span class="chip move">이동</span><span class="title">이케마대교</span></div>
+        <div class="note">북쪽으로 이어지는 1.4km 다리 / 다리 앞 휴게소 정차</div>
+        <div class="shot f-deep" data-no="24" data-fallback="true" data-srcs="images/24.jpg|images/24.jpeg|images/24.png|images/ikema-bridge.jpg|images/ikema-bridge.jpeg|images/ikema-bridge.png" data-label="池間大橋"
+             data-desc="미야코 본섬과 이케마섬을 잇는 1,425m 다리입니다. 다리 아래 바다 색이 특히 밝고, 다리 앞 휴게소에서 모즈쿠와 소금 아이스크림을 팝니다."
+             data-map="池間大橋">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">16:40</div>
+      <div class="c">
+        <div class="row-head"><span class="chip spot">관광</span><span class="title">니시헨나자키 전망대</span></div>
+        <div class="note">섬 서쪽 끝 풍력발전기와 초원 / 사람이 적고 한적합니다</div>
+        <div class="shot f-sky" data-no="25" data-fallback="true" data-srcs="images/25.jpg|images/25.jpeg|images/25.png|images/nishi-hennazaki.jpg|images/nishi-hennazaki.jpeg|images/nishi-hennazaki.png" data-label="西平安名崎"
+             data-desc="섬 북서쪽 끝의 곶으로, 풍력발전 풍차와 이케마대교를 함께 볼 수 있는 전망대가 있습니다. 서향이라 해가 지는 방향을 정면으로 마주 봅니다."
+             data-map="西平安名崎 宮古島">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">17:30</div>
+      <div class="c">
+        <div class="row-head"><span class="chip spot">관광</span><span class="title">유키시오 뮤지엄</span></div>
+        <div class="note">세계에서 가장 미네랄이 많은 소금 / 소금 아이스크림</div>
+        <div class="sub">기념품 사기 좋은 곳 / 마감 시간 확인</div>
+        <div class="shot f-aqua" data-no="26" data-fallback="true" data-srcs="images/26.jpg|images/26.jpeg|images/26.png|images/yukishio.jpg|images/yukishio.jpeg|images/yukishio.png" data-label="雪塩ミュージアム"
+             data-desc="미야코지마 지하 해수로 만든 파우더 소금 유키시오를 소개하는 작은 박물관입니다. 무료 가이드 설명을 들을 수 있고, 소금을 뿌려 먹는 소프트 아이스크림이 인기입니다."
+             data-map="雪塩ミュージアム 宮古島">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">19:00</div>
+      <div class="c">
+        <div class="row-head"><span class="chip meal">식사</span><span class="title">저녁 / 야키니쿠 또는 스테이크</span></div>
+        <div class="note">미야코 소고기 / 마지막 밤은 조금 든든하게</div>
+        <div class="shot f-sunset" data-no="27" data-fallback="true" data-srcs="images/27.jpg|images/27.jpeg|images/27.png|images/miyako-beef.jpg|images/miyako-beef.jpeg|images/miyako-beef.png" data-label="宮古牛"
+             data-desc="미야코지마에서 사육하는 흑모화우입니다. 생산량이 적어 섬 밖에서는 보기 어렵고, 시내 야키니쿠집과 스테이크하우스에서 맛볼 수 있습니다."
+             data-map="宮古牛 焼肉 平良">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">20:40</div>
+      <div class="c">
+        <div class="row-head"><span class="chip spot">관광</span><span class="title">돈키호테 / 맥스밸류 쇼핑</span></div>
+        <div class="note">유키시오 / 흑당 / 아와모리 / 사타안다기</div>
+        <div class="sub">시내에서 늦게까지 여는 편입니다</div>
+        <div class="shot f-mist" data-no="28" data-fallback="true" data-srcs="images/28.jpg|images/28.jpeg|images/28.png|images/shopping.jpg|images/shopping.jpeg|images/shopping.png" data-label="마지막 쇼핑"
+             data-desc="시내에 돈키호테와 맥스밸류가 있어 기념품과 간식을 한 번에 살 수 있습니다. 아와모리와 유키시오는 부피가 작아 선물용으로 무난합니다."
+             data-map="ドン・キホーテ 宮古島">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="day d4" id="day4">
+  <div class="day-card">
+    <div class="day-head">
+      <div class="day-num">Day 04</div>
+      <div class="day-title">8월 14일 <span class="dow">금</span></div>
+      <div class="day-theme">마지막 바다 / 귀국</div>
+    </div>
+
+    <div class="row">
+      <div class="t">08:20</div>
+      <div class="c">
+        <div class="row-head"><span class="chip spot">관광</span><span class="title">마지막 바다 산책</span></div>
+        <div class="note">숙소 앞 해변에서 30분 / 바다 한 번 더 보기</div>
+        <div class="shot f-sunset" data-no="29" data-fallback="true" data-srcs="images/29.jpg|images/29.jpeg|images/29.png|images/morning-beach.jpg|images/morning-beach.jpeg|images/morning-beach.png" data-label="Morning Beach"
+             data-desc="아침 바다는 바람이 잔잔하고 사람이 거의 없습니다. 짐을 싣기 전에 숙소 앞 해변을 한 바퀴 도는 정도가 딱 좋습니다."
+             data-map="パイナガマビーチ 宮古島">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">09:00</div>
+      <div class="c">
+        <div class="row-head"><span class="chip move">이동</span><span class="title">Hotel Locus 체크아웃</span></div>
+        <div class="note">체크아웃 마감은 11:00이지만 비행기 때문에 일찍 나옵니다</div>
+        <div class="shot f-mist" data-no="30" data-fallback="true" data-srcs="images/30.jpg|images/30.jpeg|images/30.png|images/checkout.jpg|images/checkout.jpeg|images/checkout.png" data-label="Check-out"
+             data-desc="짐을 차에 싣고 프런트에서 정산합니다. 주차장에서 짐 정리를 마친 뒤 출발하면 공항에서 서두를 일이 없습니다."
+             data-map="Hotel Locus 宮古島">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">09:40</div>
+      <div class="c">
+        <div class="row-head"><span class="chip move">이동</span><span class="title">주유 (가득 채우기)</span></div>
+        <div class="note">공항 가는 길 주유소에서 만탱크 / 영수증 보관</div>
+        <div class="sub">시내에서 시모지시마까지 약 30분</div>
+        <div class="shot f-mist" data-no="31" data-fallback="true" data-srcs="images/31.jpg|images/31.jpeg|images/31.png|images/fuel.jpg|images/fuel.jpeg|images/fuel.png" data-label="Full to Full"
+             data-desc="가득 채워 반납하는 조건이라 반납 직전에 주유해야 합니다. 이라부대교를 건너기 전 시내 주유소가 마지막으로 편한 위치입니다."
+             data-map="ガソリンスタンド 宮古島 平良">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">10:15</div>
+      <div class="c">
+        <div class="row-head"><span class="chip move">이동</span><span class="title">렌터카 반납 (버젯)</span></div>
+        <div class="note">예약상 반납은 11:00이지만 일찍 반납하고 셔틀로 공항 이동</div>
+        <div class="sub">반납 전 계기판 / 외관 사진 찍어두기</div>
+        <div class="shot f-deep" data-no="32" data-fallback="true" data-srcs="images/32.jpg|images/32.jpeg|images/32.png|images/return.jpg|images/return.jpeg|images/return.png" data-label="Return"
+             data-desc="반납 후 지점 셔틀로 공항까지 이동합니다. 비행기가 12:00 출발이라 시간이 빠듯하니 예약 시간보다 앞당겨 반납하는 편이 안전합니다."
+             data-map="バジェットレンタカー 下地島空港">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">10:45</div>
+      <div class="c">
+        <div class="row-head"><span class="chip move">이동</span><span class="title">공항 체크인 / 출국심사</span></div>
+        <div class="note">작은 공항이라 매점이 많지 않습니다</div>
+        <div class="shot" data-fallback="true" data-label="下地島空港"
+             data-desc="터미널이 작아 체크인과 출국심사가 빠르게 끝납니다. 대신 면세점과 식당이 거의 없으니 기념품은 시내에서 미리 사두는 편이 좋습니다."
+             data-map="下地島空港">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">12:00</div>
+      <div class="c">
+        <div class="row-head"><span class="chip fly">항공</span><span class="title">LJ358 탑승</span></div>
+        <div class="fly-strip"><span class="code">SHI</span><span class="mid">12:00 ─── 14:30</span><span class="code">ICN</span></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="t">14:30</div>
+      <div class="c">
+        <div class="row-head"><span class="chip move">이동</span><span class="title">인천공항 도착 / 귀가</span></div>
+        <div class="note">T2 입국 / 3박 4일 마무리</div>
+        <div class="shot f-mist" data-no="33" data-fallback="true" data-srcs="images/33.jpg|images/33.jpeg|images/33.png|images/home.jpg|images/home.jpeg|images/home.png" data-label="Home"
+             data-desc="인천공항 제2여객터미널로 입국합니다. 수하물을 찾고 나오면 오후 세 시 전후입니다."
+             data-map="인천국제공항 제2여객터미널">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="routes" id="routes">
+  <div class="rcard">
+    <div class="rhead">
+      <div class="rtitle">날짜별 동선</div>
+      <div class="rsub">번호 순서대로 움직입니다. 실제 길 안내는 아래 구글 지도 버튼을 쓰세요.</div>
+    </div>
+    <div class="rtabs"><button type="button" class="rtab" data-day="1" style="--rc:#1B9AD1" onclick="showRoute('1')">1일<span>8/11</span></button><button type="button" class="rtab" data-day="2" style="--rc:#16A79B" onclick="showRoute('2')">2일<span>8/12</span></button><button type="button" class="rtab" data-day="3" style="--rc:#D08B45" onclick="showRoute('3')">3일<span>8/13</span></button><button type="button" class="rtab" data-day="4" style="--rc:#2A5A80" onclick="showRoute('4')">4일<span>8/14</span></button></div>
+    <svg class="rmap" viewBox="0 0 760 620" xmlns="http://www.w3.org/2000/svg" aria-label="날짜별 동선"><rect width="760" height="620" fill="#DCF0F8"/><path d="M0 69 Q 190 61 380 69 T 760 69" stroke="#fff" stroke-opacity=".55" stroke-width="2" fill="none"/><path d="M0 138 Q 190 130 380 138 T 760 138" stroke="#fff" stroke-opacity=".55" stroke-width="2" fill="none"/><path d="M0 207 Q 190 199 380 207 T 760 207" stroke="#fff" stroke-opacity=".55" stroke-width="2" fill="none"/><path d="M0 276 Q 190 268 380 276 T 760 276" stroke="#fff" stroke-opacity=".55" stroke-width="2" fill="none"/><path d="M0 344 Q 190 336 380 344 T 760 344" stroke="#fff" stroke-opacity=".55" stroke-width="2" fill="none"/><path d="M0 413 Q 190 405 380 413 T 760 413" stroke="#fff" stroke-opacity=".55" stroke-width="2" fill="none"/><path d="M0 482 Q 190 474 380 482 T 760 482" stroke="#fff" stroke-opacity=".55" stroke-width="2" fill="none"/><path d="M0 551 Q 190 543 380 551 T 760 551" stroke="#fff" stroke-opacity=".55" stroke-width="2" fill="none"/><polygon points="217.1,228.1 252.7,128.4 309.9,139.5 375.1,181.6 436.3,236.9 479.7,354.3 558.6,449.5 708.7,551.4 685.0,580.1 546.8,527.0 436.3,551.4 337.6,560.2 270.4,513.7 215.2,418.5 183.6,316.6" fill="#EAF6EC" stroke="#B9D8C4" stroke-width="2"/><polygon points="94.8,205.9 169.8,252.4 191.5,360.9 120.4,405.2 47.4,367.6 31.6,272.4" fill="#EAF6EC" stroke="#B9D8C4" stroke-width="2"/><circle cx="270.4" cy="77.5" r="13" fill="#EAF6EC" stroke="#B9D8C4" stroke-width="2"/><circle cx="266.5" cy="538.1" r="15" fill="#EAF6EC" stroke="#B9D8C4" stroke-width="2"/><text x="365" y="365" fill="#8FB0A0" font-size="15" font-weight="700">미야코 본섬</text><text x="26" y="308" fill="#8FB0A0" font-size="12" font-weight="700">이라부 / 시모지</text><g class="route" data-day="1">
+<path d="M 49.7 307.2 L 77.9 329.6 L 73.6 238.6 L 35.0 246.9 L 60.0 272.7 L 177.7 325.5 L 319.7 330.0 L 305.8 369.9 L 341.8 358.5" stroke="#1B9AD1" stroke-width="3.5" fill="none" stroke-dasharray="8 7" stroke-linecap="round"/>
+<circle cx="49.7" cy="307.2" r="15" fill="#1B9AD1" stroke="#fff" stroke-width="2.5"/>
+<text x="49.7" y="312.2" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">1</text>
+<circle cx="77.9" cy="329.6" r="15" fill="#1B9AD1" stroke="#fff" stroke-width="2.5"/>
+<text x="77.9" y="334.6" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">2</text>
+<circle cx="73.6" cy="238.6" r="15" fill="#1B9AD1" stroke="#fff" stroke-width="2.5"/>
+<text x="73.6" y="243.6" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">3</text>
+<circle cx="35.0" cy="246.9" r="15" fill="#1B9AD1" stroke="#fff" stroke-width="2.5"/>
+<text x="35.0" y="251.9" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">4</text>
+<circle cx="60.0" cy="272.7" r="15" fill="#1B9AD1" stroke="#fff" stroke-width="2.5"/>
+<text x="60.0" y="277.7" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">5</text>
+<circle cx="177.7" cy="325.5" r="15" fill="#1B9AD1" stroke="#fff" stroke-width="2.5"/>
+<text x="177.7" y="330.5" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">6</text>
+<circle cx="319.7" cy="330.0" r="15" fill="#1B9AD1" stroke="#fff" stroke-width="2.5"/>
+<text x="319.7" y="335.0" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">7</text>
+<circle cx="305.8" cy="369.9" r="15" fill="#1B9AD1" stroke="#fff" stroke-width="2.5"/>
+<text x="305.8" y="374.9" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">8</text>
+<circle cx="341.8" cy="358.5" r="15" fill="#1B9AD1" stroke="#fff" stroke-width="2.5"/>
+<text x="341.8" y="363.5" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">9</text>
+</g><g class="route" data-day="2">
+<path d="M 331.3 315.3 L 384.9 44.3 L 346.4 385.6 L 304.7 363.4 L 303.5 495.2 L 279.8 522.4 L 271.4 557.4 L 244.8 530.7 L 338.3 350.6" stroke="#16A79B" stroke-width="3.5" fill="none" stroke-dasharray="8 7" stroke-linecap="round"/>
+<circle cx="331.3" cy="315.3" r="15" fill="#16A79B" stroke="#fff" stroke-width="2.5"/>
+<text x="331.3" y="320.3" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">1</text>
+<circle cx="384.9" cy="44.3" r="15" fill="#16A79B" stroke="#fff" stroke-width="2.5"/>
+<text x="384.9" y="49.3" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">2</text>
+<circle cx="346.4" cy="385.6" r="15" fill="#16A79B" stroke="#fff" stroke-width="2.5"/>
+<text x="346.4" y="390.6" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">3</text>
+<circle cx="304.7" cy="363.4" r="15" fill="#16A79B" stroke="#fff" stroke-width="2.5"/>
+<text x="304.7" y="368.4" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">4</text>
+<circle cx="303.5" cy="495.2" r="15" fill="#16A79B" stroke="#fff" stroke-width="2.5"/>
+<text x="303.5" y="500.2" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">5</text>
+<circle cx="279.8" cy="522.4" r="15" fill="#16A79B" stroke="#fff" stroke-width="2.5"/>
+<text x="279.8" y="527.4" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">6</text>
+<circle cx="271.4" cy="557.4" r="15" fill="#16A79B" stroke="#fff" stroke-width="2.5"/>
+<text x="271.4" y="562.4" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">7</text>
+<circle cx="244.8" cy="530.7" r="15" fill="#16A79B" stroke="#fff" stroke-width="2.5"/>
+<text x="244.8" y="535.7" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">8</text>
+<circle cx="338.3" cy="350.6" r="15" fill="#16A79B" stroke="#fff" stroke-width="2.5"/>
+<text x="338.3" y="355.6" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">9</text>
+</g><g class="route" data-day="3">
+<path d="M 698.8 544.7 L 487.6 527.0 L 450.1 522.6 L 303.0 349.7 L 272.4 81.9 L 276.4 119.6 L 317.8 192.6 L 351.2 342.8 L 330.8 372.5" stroke="#D08B45" stroke-width="3.5" fill="none" stroke-dasharray="8 7" stroke-linecap="round"/>
+<circle cx="698.8" cy="544.7" r="15" fill="#D08B45" stroke="#fff" stroke-width="2.5"/>
+<text x="698.8" y="549.7" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">1</text>
+<circle cx="487.6" cy="527.0" r="15" fill="#D08B45" stroke="#fff" stroke-width="2.5"/>
+<text x="487.6" y="532.0" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">2</text>
+<circle cx="450.1" cy="522.6" r="15" fill="#D08B45" stroke="#fff" stroke-width="2.5"/>
+<text x="450.1" y="527.6" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">3</text>
+<circle cx="303.0" cy="349.7" r="15" fill="#D08B45" stroke="#fff" stroke-width="2.5"/>
+<text x="303.0" y="354.7" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">4</text>
+<circle cx="272.4" cy="81.9" r="15" fill="#D08B45" stroke="#fff" stroke-width="2.5"/>
+<text x="272.4" y="86.9" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">5</text>
+<circle cx="276.4" cy="119.6" r="15" fill="#D08B45" stroke="#fff" stroke-width="2.5"/>
+<text x="276.4" y="124.6" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">6</text>
+<circle cx="317.8" cy="192.6" r="15" fill="#D08B45" stroke="#fff" stroke-width="2.5"/>
+<text x="317.8" y="197.6" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">7</text>
+<circle cx="351.2" cy="342.8" r="15" fill="#D08B45" stroke="#fff" stroke-width="2.5"/>
+<text x="351.2" y="347.8" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">8</text>
+<circle cx="330.8" cy="372.5" r="15" fill="#D08B45" stroke="#fff" stroke-width="2.5"/>
+<text x="330.8" y="377.5" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">9</text>
+</g><g class="route" data-day="4">
+<path d="M 305.8 372.4 L 335.2 344.6 L 300.6 334.8 L 74.9 326.7 L 53.4 297.8" stroke="#2A5A80" stroke-width="3.5" fill="none" stroke-dasharray="8 7" stroke-linecap="round"/>
+<circle cx="305.8" cy="372.4" r="15" fill="#2A5A80" stroke="#fff" stroke-width="2.5"/>
+<text x="305.8" y="377.4" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">1</text>
+<circle cx="335.2" cy="344.6" r="15" fill="#2A5A80" stroke="#fff" stroke-width="2.5"/>
+<text x="335.2" y="349.6" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">2</text>
+<circle cx="300.6" cy="334.8" r="15" fill="#2A5A80" stroke="#fff" stroke-width="2.5"/>
+<text x="300.6" y="339.8" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">3</text>
+<circle cx="74.9" cy="326.7" r="15" fill="#2A5A80" stroke="#fff" stroke-width="2.5"/>
+<text x="74.9" y="331.7" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">4</text>
+<circle cx="53.4" cy="297.8" r="15" fill="#2A5A80" stroke="#fff" stroke-width="2.5"/>
+<text x="53.4" y="302.8" text-anchor="middle" fill="#fff" font-size="14" font-weight="800">5</text>
+</g></svg>
+    <div class="rpanel" data-day="1"><ol class="rlist"><li><span class="rn" style="background:#1B9AD1">1</span><span class="rt">11:00</span><span class="rname">시모지시마 공항</span></li><li><span class="rn" style="background:#1B9AD1">2</span><span class="rt">12:00</span><span class="rname">버젯 렌터카</span></li><li><span class="rn" style="background:#1B9AD1">3</span><span class="rt">12:40</span><span class="rname">스무리 소바</span></li><li><span class="rn" style="background:#1B9AD1">4</span><span class="rt">13:50</span><span class="rname">사와다노하마</span></li><li><span class="rn" style="background:#1B9AD1">5</span><span class="rt">14:30</span><span class="rname">17END</span></li><li><span class="rn" style="background:#1B9AD1">6</span><span class="rt">15:30</span><span class="rname">이라부대교</span></li><li><span class="rn" style="background:#1B9AD1">7</span><span class="rt">16:10</span><span class="rname">Hotel Locus</span></li><li><span class="rn" style="background:#1B9AD1">8</span><span class="rt">17:40</span><span class="rname">파이나가마 비치</span></li><li><span class="rn" style="background:#1B9AD1">9</span><span class="rt">19:20</span><span class="rname">고야 이자카야</span></li></ol><a class="rgo" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&travelmode=driving&origin=%E4%B8%8B%E5%9C%B0%E5%B3%B6%E7%A9%BA%E6%B8%AF&destination=%E9%83%B7%E5%AE%B6%20%E5%AE%AE%E5%8F%A4%E5%B3%B6&waypoints=%E3%83%90%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88%E3%83%AC%E3%83%B3%E3%82%BF%E3%82%AB%E3%83%BC%20%E4%B8%8B%E5%9C%B0%E5%B3%B6%E7%A9%BA%E6%B8%AF%7C%E3%81%9D%E3%81%B0%E5%87%A6%E3%81%99%E3%82%80%E3%81%B0%E3%82%8A%20%E5%AE%AE%E5%8F%A4%E5%B3%B6%7C%E4%BD%90%E5%92%8C%E7%94%B0%E3%81%AE%E6%B5%9C%7C17END%20%E4%B8%8B%E5%9C%B0%E5%B3%B6%7C%E4%BC%8A%E8%89%AF%E9%83%A8%E5%A4%A7%E6%A9%8B%7CHotel%20Locus%20%E5%AE%AE%E5%8F%A4%E5%B3%B6%7C%E3%83%91%E3%82%A4%E3%83%8A%E3%82%AC%E3%83%9E%E3%83%93%E3%83%BC%E3%83%81" style="background:#1B9AD1">구글 지도로 1일차 동선 열기</a></div><div class="rpanel" data-day="2"><ol class="rlist"><li><span class="rn" style="background:#16A79B">1</span><span class="rt">07:20</span><span class="rname">히라라항</span></li><li><span class="rn" style="background:#16A79B">2</span><span class="rt">07:40</span><span class="rname">야비지</span></li><li><span class="rn" style="background:#16A79B">3</span><span class="rt">12:40</span><span class="rname">코자 소바</span></li><li><span class="rn" style="background:#16A79B">4</span><span class="rt">14:00</span><span class="rname">Hotel Locus</span></li><li><span class="rn" style="background:#16A79B">5</span><span class="rt">16:20</span><span class="rname">요나하 마에하마</span></li><li><span class="rn" style="background:#16A79B">6</span><span class="rt">17:40</span><span class="rname">구리마대교</span></li><li><span class="rn" style="background:#16A79B">7</span><span class="rt">18:10</span><span class="rname">라쿠엔노카지츠</span></li><li><span class="rn" style="background:#16A79B">8</span><span class="rt">19:10</span><span class="rname">나가마하마 일몰</span></li><li><span class="rn" style="background:#16A79B">9</span><span class="rt">20:20</span><span class="rname">시내 이자카야</span></li></ol><a class="rgo" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&travelmode=driving&origin=%E5%B9%B3%E8%89%AF%E6%B8%AF%20%E5%AE%AE%E5%8F%A4%E5%B3%B6&destination=%E5%B1%85%E9%85%92%E5%B1%8B%20%E5%AE%AE%E5%8F%A4%E5%B3%B6%20%E5%B9%B3%E8%89%AF&waypoints=%E5%85%AB%E9%87%8D%E5%B9%B2%E7%80%AC%20%E5%AE%AE%E5%8F%A4%E5%B3%B6%7C%E5%8F%A4%E8%AC%9D%E3%81%9D%E3%81%B0%E5%B1%8B%20%E5%AE%AE%E5%8F%A4%E5%B3%B6%7CHotel%20Locus%20%E5%AE%AE%E5%8F%A4%E5%B3%B6%7C%E4%B8%8E%E9%82%A3%E8%A6%87%E5%89%8D%E6%B5%9C%E3%83%93%E3%83%BC%E3%83%81%7C%E6%9D%A5%E9%96%93%E5%A4%A7%E6%A9%8B%7C%E6%A5%BD%E5%9C%92%E3%81%AE%E6%9E%9C%E5%AE%9F%20%E6%9D%A5%E9%96%93%E5%B3%B6%7C%E9%95%B7%E9%96%93%E6%B5%9C%20%E6%9D%A5%E9%96%93%E5%B3%B6" style="background:#16A79B">구글 지도로 2일차 동선 열기</a></div><div class="rpanel" data-day="3"><ol class="rlist"><li><span class="rn" style="background:#D08B45">1</span><span class="rt">10:00</span><span class="rname">히가시헨나자키</span></li><li><span class="rn" style="background:#D08B45">2</span><span class="rt">11:30</span><span class="rname">이무갸 마린가든</span></li><li><span class="rn" style="background:#D08B45">3</span><span class="rt">12:40</span><span class="rname">시기라 리조트</span></li><li><span class="rn" style="background:#D08B45">4</span><span class="rt">14:00</span><span class="rname">숙소 휴식</span></li><li><span class="rn" style="background:#D08B45">5</span><span class="rt">16:10</span><span class="rname">이케마대교</span></li><li><span class="rn" style="background:#D08B45">6</span><span class="rt">16:40</span><span class="rname">니시헨나자키</span></li><li><span class="rn" style="background:#D08B45">7</span><span class="rt">17:30</span><span class="rname">유키시오 뮤지엄</span></li><li><span class="rn" style="background:#D08B45">8</span><span class="rt">19:00</span><span class="rname">야키니쿠</span></li><li><span class="rn" style="background:#D08B45">9</span><span class="rt">20:40</span><span class="rname">돈키호테</span></li></ol><a class="rgo" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&travelmode=driving&origin=%E6%9D%B1%E5%B9%B3%E5%AE%89%E5%90%8D%E5%B4%8E%20%E5%AE%AE%E5%8F%A4%E5%B3%B6&destination=%E3%83%89%E3%83%B3%E3%83%BB%E3%82%AD%E3%83%9B%E3%83%BC%E3%83%86%20%E5%AE%AE%E5%8F%A4%E5%B3%B6&waypoints=%E3%82%A4%E3%83%A0%E3%82%AE%E3%83%A3%E3%83%BC%E3%83%9E%E3%83%AA%E3%83%B3%E3%82%AC%E3%83%BC%E3%83%87%E3%83%B3%20%E5%AE%AE%E5%8F%A4%E5%B3%B6%7C%E3%82%B7%E3%82%AE%E3%83%A9%E3%83%AA%E3%82%BE%E3%83%BC%E3%83%88%20%E5%AE%AE%E5%8F%A4%E5%B3%B6%7CHotel%20Locus%20%E5%AE%AE%E5%8F%A4%E5%B3%B6%7C%E6%B1%A0%E9%96%93%E5%A4%A7%E6%A9%8B%7C%E8%A5%BF%E5%B9%B3%E5%AE%89%E5%90%8D%E5%B4%8E%20%E5%AE%AE%E5%8F%A4%E5%B3%B6%7C%E9%9B%AA%E5%A1%A9%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0%20%E5%AE%AE%E5%8F%A4%E5%B3%B6%7C%E5%AE%AE%E5%8F%A4%E7%89%9B%20%E7%84%BC%E8%82%89%20%E5%B9%B3%E8%89%AF" style="background:#D08B45">구글 지도로 3일차 동선 열기</a></div><div class="rpanel" data-day="4"><ol class="rlist"><li><span class="rn" style="background:#2A5A80">1</span><span class="rt">08:20</span><span class="rname">파이나가마 비치</span></li><li><span class="rn" style="background:#2A5A80">2</span><span class="rt">09:00</span><span class="rname">체크아웃</span></li><li><span class="rn" style="background:#2A5A80">3</span><span class="rt">09:40</span><span class="rname">주유</span></li><li><span class="rn" style="background:#2A5A80">4</span><span class="rt">10:15</span><span class="rname">렌터카 반납</span></li><li><span class="rn" style="background:#2A5A80">5</span><span class="rt">10:45</span><span class="rname">시모지시마 공항</span></li></ol><a class="rgo" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&travelmode=driving&origin=%E3%83%91%E3%82%A4%E3%83%8A%E3%82%AC%E3%83%9E%E3%83%93%E3%83%BC%E3%83%81&destination=%E4%B8%8B%E5%9C%B0%E5%B3%B6%E7%A9%BA%E6%B8%AF&waypoints=Hotel%20Locus%20%E5%AE%AE%E5%8F%A4%E5%B3%B6%7C%E3%82%AC%E3%82%BD%E3%83%AA%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89%20%E5%AE%AE%E5%8F%A4%E5%B3%B6%20%E5%B9%B3%E8%89%AF%7C%E3%83%90%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88%E3%83%AC%E3%83%B3%E3%82%BF%E3%82%AB%E3%83%BC%20%E4%B8%8B%E5%9C%B0%E5%B3%B6%E7%A9%BA%E6%B8%AF" style="background:#2A5A80">구글 지도로 4일차 동선 열기</a></div>
+  </div>
+</section>
+
+<section class="memo">
+  <h2>챙겨두면 좋은 것들</h2>
+  <div class="memo-row"><div class="k">반납</div><div class="v">렌터카 예약 반납은 8/14 11:00, 비행기는 12:00입니다. 시간이 빠듯하니 10:15 전후로 반납하고 셔틀을 타는 편이 안전합니다.</div></div>
+  <div class="memo-row"><div class="k">운전</div><div class="v">좌측통행입니다. 국제운전면허증과 국내면허증, 여권, 운전자 명의 실물 신용카드를 함께 가져가세요.</div></div>
+  <div class="memo-row"><div class="k">날씨</div><div class="v">8월은 태풍 시즌입니다. 보트투어는 기상에 따라 전날 저녁이나 당일 아침에 변경 연락이 올 수 있습니다.</div></div>
+  <div class="memo-row"><div class="k">자외선</div><div class="v">그늘이 거의 없습니다. 래시가드와 모자, 산호에 안전한 자외선차단제를 준비하세요.</div></div>
+  <div class="memo-row"><div class="k">현금</div><div class="v">작은 식당과 주차장은 현금만 받는 곳이 있습니다. 엔화 현금을 조금 나눠 가지고 다니면 편합니다.</div></div>
+  <div class="memo-row"><div class="k">영업시간</div><div class="v">식당은 저녁 아홉 시 전후로 마감하는 곳이 많습니다. 저녁은 예약해두는 편이 안전합니다.</div></div>
+</section>
+
+<div class="legend">
+  <span><i style="background:#EE8368"></i>식사</span>
+  <span><i style="background:#1B9AD1"></i>관광</span>
+  <span><i style="background:#7B9EB1"></i>이동</span>
+  <span><i style="background:#16B3A6"></i>휴식</span>
+  <span><i style="background:#12628C"></i>항공</span>
+</div>
+
+</main>
+
+<div class="footer">좋은 여행 되세요<br><span style="font-size:11px;color:#9BB8C8;">v18</span></div>
+
+<div class="lb" id="lb" onclick="if(event.target===this)closeLb()">
+  <div class="lb-card">
+    <div class="lb-visual" id="lb-visual">
+      <button class="lb-x" type="button" onclick="closeLb()" aria-label="닫기">✕</button>
+      <img id="lb-img" alt="">
+    </div>
+    <div class="lb-body">
+      <div class="lb-title" id="lb-title"></div>
+      <div class="lb-desc" id="lb-desc"></div>
+      <div class="lb-addr" id="lb-addr"></div>
+      <a class="lb-map" id="lb-map" target="_blank" rel="noopener">구글 지도에서 열기</a>
+    </div>
+  </div>
+</div>
+
+<a href="#routes" class="to-map" aria-label="동선 지도">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 8 3 16 6 23 3 23 18 16 21 8 18 1 21 1 6"/><line x1="8" y1="3" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="21"/></svg>
+</a>
+<a href="#" class="to-top" id="toTop" aria-label="맨 위로">↑</a>
+
+<script>
+function goDay(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* BGM : 스크롤(또는 첫 터치)에서 자동 재생 */
+(function () {
+  const audio = document.getElementById('bgm');
+  if (!audio) return;
+  let started = false;
+  const events = ['scroll', 'wheel', 'touchstart', 'touchmove', 'touchend', 'click', 'keydown'];
+  function remove() { events.forEach(ev => window.removeEventListener(ev, start)); }
+  function start() {
+    if (started) return;
+    started = true;
+    audio.volume = 0;
+    audio.play().then(() => {
+      let v = 0;
+      const fade = setInterval(() => {
+        v += 0.05;
+        if (v >= 0.7) { v = 0.7; clearInterval(fade); }
+        audio.volume = v;
+      }, 100);
+      remove();
+    }).catch(() => { started = false; });
+  }
+  events.forEach(ev => window.addEventListener(ev, start, { passive: true }));
+  audio.play().then(() => { started = true; audio.volume = 0.7; remove(); }).catch(() => {});
+})();
+
+const toTop = document.getElementById('toTop');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 600) toTop.classList.add('visible');
+  else toTop.classList.remove('visible');
+});
+toTop.addEventListener('click', (e) => {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+/* 대표 사진 : images/ 폴더의 사진을 순서대로 시도 */
+(function () {
+  function attach(shot, urls, i) {
+    if (i >= urls.length) return;
+    const img = document.createElement('img');
+    img.className = 'wm';
+    img.alt = shot.dataset.label || '';
+    img.decoding = 'async';
+    img.onload = () => {
+      shot.removeAttribute('data-fallback');
+      shot.querySelectorAll('img').forEach(o => { if (o !== img) o.remove(); });
+    };
+    img.onerror = () => { img.remove(); attach(shot, urls, i + 1); };
+    shot.insertBefore(img, shot.firstChild);
+    img.src = urls[i];
+  }
+  const run = () => document.querySelectorAll('.shot[data-srcs]').forEach(shot => {
+    attach(shot, shot.dataset.srcs.split('|').filter(Boolean), 0);
+  });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+  else run();
+})();
+
+
+/* 동선 지도 전환 */
+function showRoute(k) {
+  document.querySelectorAll('.route').forEach(g => g.classList.toggle('on', g.dataset.day === k));
+  document.querySelectorAll('.rpanel').forEach(p => p.classList.toggle('on', p.dataset.day === k));
+  document.querySelectorAll('.rtab').forEach(b => b.setAttribute('aria-pressed', b.dataset.day === k ? 'true' : 'false'));
+}
+showRoute('1');
+
+/* 상세 팝업 */
+function openLb(shot) {
+  try {
+    const c = shot.closest('.c');
+    if (!c) return;
+    const imgEl = shot.querySelector('img');
+    const src = (imgEl && imgEl.style.display !== 'none') ? imgEl.src : '';
+    const titleEl = c.querySelector('.title');
+    const noteEl = c.querySelector('.note');
+    const subEl = c.querySelector('.sub');
+    const title = ((titleEl && titleEl.textContent) || shot.dataset.label || '').trim();
+    const desc = (shot.dataset.desc || (noteEl && noteEl.textContent) || '').trim();
+    const addr = ((subEl && subEl.textContent) || '').trim();
+    const q = (shot.dataset.map || shot.dataset.label || title || '').trim();
+
+    const img = document.getElementById('lb-img');
+    const visual = document.getElementById('lb-visual');
+    if (src) {
+      img.src = src; img.alt = title;
+      img.classList.remove('hide'); visual.classList.remove('slim');
+    } else {
+      img.removeAttribute('src'); img.classList.add('hide'); visual.classList.add('slim');
+    }
+    document.getElementById('lb-title').textContent = title;
+    document.getElementById('lb-desc').textContent = desc;
+    const addrEl = document.getElementById('lb-addr');
+    if (addr) { addrEl.textContent = addr; addrEl.classList.remove('hide'); }
+    else { addrEl.classList.add('hide'); }
+    const wm = shot.querySelector('img.wm');
+    if (wm && addrEl) {
+      addrEl.textContent = (addr ? addr + '  /  ' : '') + '사진 : Wikimedia Commons';
+      addrEl.classList.remove('hide');
+    }
+    document.getElementById('lb-map').href =
+      'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
+
+    document.getElementById('lb').classList.add('show');
+    document.body.classList.add('lb-open');
+  } catch (e) {}
+}
+function closeLb() {
+  document.getElementById('lb').classList.remove('show');
+  document.body.classList.remove('lb-open');
+}
+(function () {
+  const attach = () => {
+    document.querySelectorAll('.shot').forEach(el => {
+      if (el.dataset.bound) return;
+      el.dataset.bound = '1';
+      el.addEventListener('click', () => openLb(el));
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', attach);
+  else attach();
+})();
+</script>
+
+</body>
+</html>
