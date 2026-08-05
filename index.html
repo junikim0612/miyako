@@ -1959,12 +1959,7 @@ function armBgm() {
     if (up) return;
     up = true;
     if (audio.paused) { audio.play().catch(() => {}); }
-    let v = audio.volume;
-    const fade = setInterval(() => {
-      v += 0.04;
-      if (v >= 0.7) { v = 0.7; clearInterval(fade); }
-      audio.volume = v;
-    }, 110);
+    audio.volume = 0.7;
     remove();
   }
   // START 를 누른 그 탭/클릭이 곧바로 볼륨을 올리지 않도록 잠깐 뒤에 연결
@@ -2052,10 +2047,8 @@ function startTrip() {
     a.volume = 0;
     // 버튼을 누른 제스처 안에서 재생은 시작하되(무음), 소리는 0.8초 뒤부터 천천히 올린다
     a.play().then(function () {
-      setTimeout(function () {
-        var v = 0;
-        var fade = setInterval(function () { v += 0.02; if (v >= 0.7) { v = 0.7; clearInterval(fade); } a.volume = v; }, 150);
-      }, 4200);
+      // 인트로가 사라진 뒤 곧바로, 페이드 없이 바로 음량 적용
+      setTimeout(function () { a.volume = 0.7; }, 1500);
     }).catch(function () { if (typeof armBgm === 'function') armBgm(); });
   }
   intro.classList.add('exit');
